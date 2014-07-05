@@ -4,12 +4,39 @@
 		<meta charset="utf-8"/>
 		<title>JSONP ejemplo</title>
 		<script src="estaticos/javascript/lib/jquery.min.js"></script>
-		<script>
-			
-		</script>
+
 	</head>
 	<body>
-		<div id="imagenes"></div>
+		<div id="imagenes">
+
+		</div>	
+			<script>
+				/*	LAS VARIABLES Y FUNCIONES GLOBALES SON INHERENTEMENTE MALVADAS
+				 * PARA NO TENER VARIABLES GLOBALES O FUNCIONES
+				 */
+				$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?ids=61481595@N05&format=json&jsoncallback=?", function(datos) {
+
+					function MIFUNCION(datos) {
+						//por quee pongo items
+						//por que yo se que al ver el api json de flickr
+						//que tiene esa protiedad
+						var fotos = datos.items;
+
+						fotos.forEach(function(foto) {
+							var titulo = foto.title;
+							var urlImagen = foto.media.m;
+
+							//	SOLUCION EJERCICIO !!
+
+							var caja = "<div>" + "<img src='" + urlImagen + "'>" + "</div>";
+							$("#imagenes").append(caja);
+						});
+						//alert(datos);
+					}
+
+				});
+
+			</script>
 	</body>
 </html>
 

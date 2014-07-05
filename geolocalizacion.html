@@ -1,0 +1,47 @@
+!doctype html>
+<html>
+	<head lang="es">
+		
+		<meta charset="utf-8"/>
+		<title>JSONP ejemplo</title>
+		<script src="estaticos/javascript/lib/jquery.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script src="estaticos/javascript/lib/gomap.js"></script>
+		
+	</head>
+	<body>
+
+		<div id="mapa">
+			<style>
+				/*
+				 * si no ponen un alto y un ancho en u caja 
+				 * aunque consuman bien el api no se vera nada
+				 */
+			
+				#mapa{
+					width:500px;
+					height: 400px;
+				}
+			</style>
+		</div>
+		<script>
+			navigator.geolocation.getCurrentPosition(function(cordenadas){
+				//alert("latitud:" + cordenadas.coords.latitude);
+				//alert("longitud:" + cordenadas.coords.longitude);
+				$("#mapa").goMap({
+					markers:[{
+						latitude:cordenadas.coord.latitude,
+						latitude:cordenadas.coord.latitude,
+						icon:"estaticos/imagenes/apartamento.png"
+						},{
+					}],
+					zoom:15,
+					maptype:"TERRAIN"
+				});
+				
+			});
+		</script>
+
+	</body>
+</html>
+

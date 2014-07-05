@@ -220,3 +220,11 @@ footer {
 	margin-bottom: 3px;
 }
 
+/*	AQUI EMPIEZA EL DISEÑO RESPONSIVO	*/
+/*	AQUI EMPIEZA EL DISEÑO RESPONSIVO	*/
+/*	AQUI EMPIEZA EL DISEÑO RESPONSIVO	*/
+
+@media screen and (max-width 700px){
+	#sociales ,#suscribir 
+	width 100%;
+}
